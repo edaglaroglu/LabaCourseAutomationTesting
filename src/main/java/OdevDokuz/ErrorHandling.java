@@ -6,7 +6,6 @@ public class ErrorHandling {
 
         int number = 8;
 
-
         Calculater calculater = new Calculater(number);
 
         calculater.divide(number,2);

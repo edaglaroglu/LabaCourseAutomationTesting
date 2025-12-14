@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Salary Calculation Suite">
+
+    <test name="Salary Calculation Tests">
+        <classes>
+            <class name="SalaryCalculationTest"/>
+        </classes>
+    </test>
+
+</suite>
