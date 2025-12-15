@@ -2,6 +2,7 @@ package OdevOnDort;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,11 +23,13 @@ public class ClickButtonTest {
         //Test: Click Buttons
         WebElement buttonsButton = driver.findElement(By.cssSelector("#item-4 > span"));
         buttonsButton.click();
-        Thread.sleep(5000);
+        Thread.sleep(1000);
 
         WebElement clickMeButton = driver.findElement(By.cssSelector("div.mt-4:nth-of-type(3) > button"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", clickMeButton);
         clickMeButton.click();
-        Thread.sleep(5000);
+        Thread.sleep(1000);
 
         WebElement clickMsg = driver.findElement(By.cssSelector("#dynamicClickMessage"));
         Assert.assertEquals(clickMsg.getText(), "You have done a dynamic click");

@@ -2,9 +2,11 @@ package OdevOnDort;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -20,8 +22,8 @@ public class AddRecordTest {
         driver.get("https://demoqa.com/webtables");
         driver.manage().window().maximize();
 
-        //Test: Add record
 
+        //Test: Add record
         WebElement addButton = driver.findElement(By.cssSelector("#addNewRecordButton"));
         addButton.click();
         Thread.sleep(2000);
@@ -30,7 +32,7 @@ public class AddRecordTest {
         List<WebElement> formFields =
                 driver.findElements(By.cssSelector("form > div > div:nth-of-type(2) input"));
 
-        System.out.println(formFields.size());
+        //System.out.println(formFields.size());
 
         for (WebElement formField : formFields) {
             String placeHolder = formField.getAttribute("placeholder");
@@ -57,46 +59,59 @@ public class AddRecordTest {
             }
         }
 
-        Thread.sleep(2000);
         submitButton.click();
 
-        List<WebElement> editIcons =
-                driver.findElements(By.cssSelector("span[title='Edit'] svg"));
+        //Edit Form
+        WebElement editIcon = driver.findElement(By.cssSelector("#edit-record-4"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", editIcon);
+        editIcon.click();
+        Thread.sleep(1000);
 
-        editIcons.get(editIcons.size() - 1).click();
+        List<WebElement> editFields =
+                driver.findElements(By.cssSelector("form > div > div:nth-of-type(2) input"));
 
-        Thread.sleep(5000);
-
-
-        for (WebElement formField : formFields) {
+        for (WebElement formField : editFields) {
             String placeHolder = formField.getAttribute("placeholder");
 
             switch (placeHolder){
                 case "First Name":
+                    formField.clear();
                     formField.sendKeys("Elif");
                     break;
                 case "Last Name":
+                    formField.clear();
                     formField.sendKeys("Can");
                     break;
                 case "name@example.com":
+                    formField.clear();
                     formField.sendKeys("elif@gmail.com");
                     break;
                 case "Age":
+                    formField.clear();
                     formField.sendKeys("60");
                     break;
                 case "Salary":
+                    formField.clear();
                     formField.sendKeys("60000");
                     break;
                 case "Department":
+                    formField.clear();
                     formField.sendKeys("IT");
                     break;
             }
         }
 
-        Thread.sleep(2000);
-        submitButton.click();
-        Thread.sleep(2000);
+        String actualSurname = driver.findElement(By.cssSelector("#lastName")).getAttribute("value");
+        Assert.assertEquals(actualSurname, "Can");
+
+        WebElement editSubmitButton = driver.findElement(By.cssSelector("#submit"));
+        editSubmitButton.click();
+
+
+
         driver.quit();
+
 
     }
 }
