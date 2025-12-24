@@ -65,6 +65,8 @@ public class WebTablesPage {
         fillForm(newFn, newLn, newEmail, newAge, newSalary, newDept);
         submit();
 
+        rowByEmail(newEmail).shouldBe(visible);
+
 
     }
 
