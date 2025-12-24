@@ -64,6 +64,8 @@ public class WebTablesPage {
 
         fillForm(newFn, newLn, newEmail, newAge, newSalary, newDept);
         submit();
+
+
     }
 
 }

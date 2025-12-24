@@ -1,4 +1,4 @@
-@button
+@qatool
   Feature: click button
 
    User clicks click me button and see the message
