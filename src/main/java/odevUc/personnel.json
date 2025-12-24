@@ -1,0 +1,21 @@
+{
+  "id": 101,
+  "firstName": "Elif",
+  "lastName": "Daglaroglu",
+  "age": 28,
+  "email": "elif@gmail.com",
+  "isFullTime": true,
+  "salary": 55000.50,
+  "department": "QA Engineering",
+  "skills": [
+    "Java",
+    "Selenium",
+    "Selenide",
+    "API Testing"
+  ],
+  "address": {
+    "street": "Mustafa Kemal Cd. No:45",
+    "city": "Izmir",
+    "country": "Turkey"
+  }
+}

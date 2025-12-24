@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Person>
+    <id>101</id>
+    <firstName>Elif</firstName>
+    <lastName>Daglaroglu</lastName>
+    <age>28</age>
+    <email>elif@example.com</email>
+    <isFullTime>true</isFullTime>
+    <salary>55000.50</salary>
+    <department>QA Engineering</department>
+
+    <skills>
+        <skill>Java</skill>
+        <skill>Selenium</skill>
+        <skill>Selenide</skill>
+        <skill>API Testing</skill>
+    </skills>
+
+    <address>
+        <street>Mustafa Kemal Cd. No:45</street>
+        <city>Izmir</city>
+        <country>Turkey</country>
+    </address>
+</Person>
